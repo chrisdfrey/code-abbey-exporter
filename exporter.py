@@ -1,7 +1,7 @@
-import http.client
+import requests
 
-conn = http.client.HTTPConnection("www.codeabbey.com")
-conn.request("GET", "/index/user_profile")
+php_session_id = "" # change this for your login
 
-r = conn.getresponse().read()
-print(r)
+r = requests.get("https://www.codeabbey.com/index/user_profile", cookies={"PHPSESSID": php_session_id})
+
+print(r.text)
